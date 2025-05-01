@@ -3,7 +3,7 @@ import img1 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריא�
 import img2 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/headerImg/FB_IMG_1578127969517-768x512.jpg';
 import img3 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/headerImg/fdd29b67-20bf-4237-85dc-65efecf4e17f.jpg';
 import img4 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/headerImg/thumbnails_420_332_detailed_2F6575_2F20221121_131429.jpg';
-import img5 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/headerImg/חדששששששששש-1-pktu3lkedar8ukp1utmteg1z8pixqjzmvz3pp2zum4.jpg';
+import img5 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/headerImg/WhatsApp-Image-2020-12-06-at-17.43.52.jpeg';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import './Header.css';

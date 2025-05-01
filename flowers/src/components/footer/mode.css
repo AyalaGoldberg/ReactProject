@@ -1,0 +1,39 @@
+/* עיצוב הפוטר הכללי */
+.footer {
+    display: flex; /* שימוש ב-Flexbox */
+    justify-content: space-around; /* ריווח שווה בין הרשימות */
+    align-items: flex-start; /* יישור הרשימות למעלה */
+    background-color: #2c2c2c; /* צבע רקע כהה */
+    padding: 30px 20px; /* ריווח פנימי */
+    border-top: 3px solid #bfa980; /* קו עליון בצבע זהב */
+    width: 100%; /* רוחב מלא */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* צל קל */
+}
+
+/* עיצוב כל רשימה */
+.mode {
+    flex: 1; /* כל רשימה תופסת מקום שווה */
+    margin: 0 15px; /* ריווח בין הרשימות */
+    text-align: center; /* יישור טקסט למרכז */
+}
+
+.mode h3 {
+    font-size: 1.4rem; /* גודל כותרת */
+    margin-bottom: 15px; /* ריווח מתחת לכותרת */
+    text-transform: uppercase; /* אותיות גדולות */
+    color: #bfa980; /* צבע כותרת זהוב */
+    border-bottom: 2px solid #bfa980; /* קו תחתון זהוב */
+    padding-bottom: 5px; /* ריווח פנימי מתחת לכותרת */
+}
+
+.mode h5 {
+    font-size: 1rem; /* גודל טקסט לפריטים */
+    margin: 8px 0; /* ריווח בין הפריטים */
+    color: #e0e0e0; /* צבע טקסט אפור בהיר */
+    transition: color 0.3s ease; /* אפקט מעבר צבע */
+}
+
+.mode h5:hover {
+    color: #bfa980; /* שינוי צבע במעבר עכבר לזהוב */
+    cursor: pointer; /* סמן עכבר משתנה */
+}
