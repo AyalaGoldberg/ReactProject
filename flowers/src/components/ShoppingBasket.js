@@ -51,8 +51,9 @@ import img3 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריא�
 import img4 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/מוצרים-משלמים-כלים-ונרות-קטגוריה-4-100x100.jpg'
 
 import './ShoppingBasket.css'; // ניצור קובץ CSS נפרד
+import { useCart } from './CartOntext';
 
-export default function ShoppingBasket({ productsForBuying }) {
+export default function ShoppingBasket() {
     const images = [];
     const Extras = [
         { img: img1, describe: "ברכות ובלונים", price: 20 },
@@ -61,20 +62,21 @@ export default function ShoppingBasket({ productsForBuying }) {
         { img: img4, describe: "כלים ונרות", price: 35 },
     ];
 
+    const {productsForBuying} = useCart();
+
     return (
         <>
-            {/* {productsForBuying.length === 0 ? (
-                <h3>סל הקניות שלך ריק כרגע</h3>
-            ) : (
-                productsForBuying.forEach(element => {
-                    <div>
-                        <img src={element.img} />
-                        <p>{element.price}</p>
-                        <p>{element.amount}</p>
-                    </div>
-                }
-                )
-            )} */}
+           {productsForBuying.length === 0 ? (
+    <h3>סל הקניות שלך ריק כרגע</h3>
+) : (
+    productsForBuying.map((element) => (
+        <div key={element.id}>
+            <img src={element.img} alt={element.name} />
+            <p>{element.price} ₪</p>
+            <p>כמות: {element.amount}</p>
+        </div>
+    ))
+)}
             <div className="extras-container">
                 <h2>מוצרים משלימים לבחירה:</h2>
                 {Extras.map((element, index) => (

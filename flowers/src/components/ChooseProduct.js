@@ -1,22 +1,10 @@
-import { useState } from "react";
+import { useCart } from "./CartOntext";
 
-export default function ChooseProduct(product){
-    
-    const [productsForBuying, setProductsForBuying] = useState([]);
+export default function ChooseProduct({ product }) { // שים לב: product צריך להיות מועבר כפרופס
 
-    const addToCart = (product) => {
-        const existingProduct = productsForBuying.find(item => item.id === product.id);
-        if (existingProduct) {
-            setProductsForBuying(productsForBuying.map(item => 
-                item.id === product.id ? { ...item, amount: item.amount + 1 } : item
-            ));
-        } else {
-            setProductsForBuying([...productsForBuying, { ...product, amount: 1 }]);
-        }
+    const {addToCart}= useCart(); // פרק את addToCart מתוך האובייקט שמוחזר מ-useCart
 
-    }
-    
-    return(
-        <button onClick={()=>addToCart(product)}>להוסיף לסל</button>
+    return (
+        <button onClick={() => addToCart(product)}>להוסיף לסל</button>
     );
 }
