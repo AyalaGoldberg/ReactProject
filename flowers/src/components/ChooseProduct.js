@@ -1,4 +1,4 @@
-import { useCart } from "./CartOntext";
+import { useCart } from "./shoppingCart/CartOntext";
 
 export default function ChooseProduct({ product }) { // שים לב: product צריך להיות מועבר כפרופס
 

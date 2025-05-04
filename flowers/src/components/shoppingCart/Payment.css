@@ -1,0 +1,52 @@
+/* עיצוב עבור הקונטיינר */
+.payment-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* עיצוב עבור הכותרות */
+.payment-container h4 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.payment-container h3 {
+    font-size: 30px;
+    color: #007bff;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* עיצוב עבור הכפתור */
+.payment-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.payment-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.payment-button:active {
+    background-color: #003f7f;
+    transform: translateY(0);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
