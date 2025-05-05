@@ -3,6 +3,10 @@ import { createContext,useContext,useState } from "react";
 const CartContext = createContext();
 export function CartProvider({children}) {
     const [productsForBuying, setProductsForBuying] = useState([]);
+    const removeItem = (id) => {
+        const updatedProducts = productsForBuying.filter((item) => item.id !== id);
+        setProductsForBuying(updatedProducts);
+    }
     const addToCart = (product) => {
         const existingProduct = productsForBuying.find(item => item.id === product.id);
         if (existingProduct) {

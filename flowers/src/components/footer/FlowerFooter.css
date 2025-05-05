@@ -1,0 +1,76 @@
+/* עיצוב עבור הקונטיינר הראשי של הפוטר */
+.footer {
+    display: flex;
+    flex-direction: column; /* מסדר את האלמנטים בעמודה */
+    align-items: center; /* ממרכז את כל האלמנטים אופקית */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    font-family: 'Arial', sans-serif;
+    text-align: center; /* ממרכז את הטקסט */
+}
+
+/* עיצוב עבור הקבוצות (Mode) */
+.footer > .content {
+    display: flex; /* מסדר את הקבוצות בשורה */
+    justify-content: space-between; /* רווחים שווים בין הקבוצות */
+    align-items: flex-start; /* מיישר את הקבוצות למעלה */
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+    gap: 20px; /* רווח בין הקבוצות */
+}
+
+/* עיצוב עבור הרשימות */
+.footer ul {
+    list-style: none; /* הסרת הנקודות מהרשימה */
+    padding: 0;
+    margin: 0;
+    text-align: center; /* ממרכז את הטקסט בתוך הרשימה */
+}
+
+.footer ul li {
+    font-size: 14px;
+    color: #555; /* צבע הטקסט */
+    margin-bottom: 5px; /* רווח בין הפריטים */
+    transition: color 0.3s ease; /* אפקט מעבר חלק */
+}
+
+/* שינוי צבע בעת ריחוף */
+.footer ul li:hover {
+    color: #007bff; /* צבע חדש בעת ריחוף */
+}
+
+/* עיצוב עבור הכותרות */
+.footer h4 {
+    font-size: 18px;
+    color: #333; /* צבע הכותרת הרגיל */
+    margin-bottom: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease; /* אפקט מעבר חלק */
+}
+
+/* שינוי צבע הכותרות בעת ריחוף */
+.footer h4:hover {
+    color: #007bff; /* צבע חדש בעת ריחוף */
+}
+
+/* עיצוב עבור האייקונים החברתיים */
+.social-icons {
+    display: flex;
+    gap: 15px; /* רווח בין האייקונים */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-icons svg {
+    font-size: 24px; /* גודל האייקונים */
+    color: #555; /* צבע ברירת מחדל */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons svg:hover {
+    color: #007bff; /* שינוי צבע בעת ריחוף */
+    transform: scale(1.2); /* הגדלה קלה בעת ריחוף */
+}

@@ -67,7 +67,7 @@ import img6 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריא�
 import img7 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/מקרונים-בקופסא.gif';
 import img8 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/פרפרים.gif';
 
-export default function AdditionalProducts() { 
+export default function AdditionalProducts() {
     const Extras = [
         { img: img1, describe: "ברכות ובלונים", price: 20 },
         { img: img2, describe: "שוקולדים ופרלינים", price: 35 },
@@ -96,19 +96,23 @@ export default function AdditionalProducts() {
         }
     }
 
-    return(
-        <div className="extras-container">
-            <button onClick={moveLess} disabled={beginIndex === 0}>⟪</button>
-            <div className="extras-items">
-                {Extras.slice(beginIndex, endIndex).map((element, index) => (
-                    <div className="extra-card" key={index}>
-                        <img src={element.img} alt={element.describe} />
-                        <h4>{element.describe}</h4>
-                        <p>{element.price} ₪</p>
-                    </div>
-                ))}
+    return (
+        <>
+            <h2>למתנה מושלמת:</h2>
+            <div className="extras-container">
+
+                <button onClick={moveLess} disabled={beginIndex === 0}>⟪</button>
+                <div className="extras-items">
+                    {Extras.slice(beginIndex, endIndex).map((element, index) => (
+                        <div className="extra-card" key={index}>
+                            <img src={element.img} alt={element.describe} />
+                            <h4>{element.describe}</h4>
+                            <p>{element.price} ₪</p>
+                        </div>
+                    ))}
+                </div>
+                <button onClick={moveMore} disabled={endIndex === Extras.length}>⟫</button>
             </div>
-            <button onClick={moveMore} disabled={endIndex === Extras.length}>⟫</button>
-        </div>
+        </>
     );
 }

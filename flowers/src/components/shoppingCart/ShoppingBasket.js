@@ -50,8 +50,10 @@ import './ShoppingBasket.css';
 import { useCart } from './CartOntext';
 
 export default function ShoppingBasket() {
-    const { productsForBuying } = useCart();
+    const { productsForBuying,removeItem } = useCart();
 
+    
+    
     return (
         <>
           
@@ -61,6 +63,7 @@ export default function ShoppingBasket() {
                     ) : (
                         productsForBuying.map((element) => (
                             <div className="product-card" key={element.id}>
+                                <button className="remove-button" onClick={()=>removeItem(element.id)}>X</button>
                                 <img src={element.img} alt={element.name} />
                                 <div>
                                     <p>{element.name}</p>
