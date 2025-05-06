@@ -58,14 +58,20 @@
 import './AdditionalProducts.css';
 import { useState } from 'react';
 
-import img1 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/new-pic-flowernet-balloons-greyBG-100x100.jpg';
-import img2 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/new-pic-flowernet-De-karina-–-with-love-greyBG-100x100.jpg';
-import img3 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/new-pic-flowernet-יין-Dalton-אסטייט-מרלו-greyBG-100x100.jpg';
-import img4 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/מוצרים-משלמים-כלים-ונרות-קטגוריה-4-100x100.jpg';
-import img5 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/בלון-חג-שמח.jpeg';
-import img6 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/גלויה-23.gif';
-import img7 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/מקרונים-בקופסא.gif';
-import img8 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/פרפרים.gif';
+import img1 from '../../images/extrasImg/new-pic-flowernet-balloons-greyBG-100x100.jpg';
+import img2 from '../../images/extrasImg/new-pic-flowernet-יין-Dalton-אסטייט-מרלו-greyBG-100x100.jpg';
+import img3 from '../../images/extrasImg/new-pic-flowernet-balloons-greyBG-100x100.jpg';
+import img4 from '../../images/extrasImg/בלון-חג-שמח.jpeg';
+import img5 from '../../images/extrasImg/גלויה-23.gif';
+import img6 from '../../images/extrasImg/מקרונים-בקופסא.gif';
+import img7 from '../../images/extrasImg/פרפרים.gif';
+
+// import img3 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/new-pic-flowernet-יין-Dalton-אסטייט-מרלו-greyBG-100x100.jpg';
+// import img4 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/מוצרים-משלמים-כלים-ונרות-קטגוריה-4-100x100.jpg';
+// import img5 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/בלון-חג-שמח.jpeg';
+// import img6 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/גלויה-23.gif';
+// import img7 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/מקרונים-בקופסא.gif';
+// import img8 from 'C:/תיקיה מסלול/ריאקט/הפרוייקט בריאקט/ReactProject/flowers/src/images/extrasImg/פרפרים.gif';
 
 export default function AdditionalProducts() {
     const Extras = [
@@ -75,8 +81,7 @@ export default function AdditionalProducts() {
         { img: img4, describe: "כלים ונרות", price: 35 },
         { img: img5, describe: "בלון חג שמח", price: 35 },
         { img: img6, describe: "כרטיס ברכה", price: 35 },
-        { img: img7, describe: "פרלינים", price: 35 },
-        { img: img8, describe: "פרפרים", price: 35 },
+        { img: img7, describe: "פרלינים", price: 35 }
     ];
 
     const [beginIndex, setBeginIndex] = useState(2);

@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
         <Header></Header>
-        <Gallery></Gallery>
+        {/* <Gallery></Gallery> */}
         <CartProvider>
           <ChooseProduct></ChooseProduct>
         <ShoppingBasket></ShoppingBasket>
