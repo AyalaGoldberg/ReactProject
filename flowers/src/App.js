@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.css';
 
+
 import Header from './components/Header';
 import ShoppingBasket from './components/shoppingCart/ShoppingBasket';
 import FlowerFooter from './components/footer/FlowerFooter';
@@ -28,14 +29,15 @@ function App() {
   ];
 
   return (
-    <CartProvider>
-      <div className="App">
-        <Header />
-        <Gallery products={products} />
-        <ShoppingBasket />
-        <FlowerFooter />
-      </div>
-    </CartProvider>
+    <div className="App">
+        <Header></Header>
+        {/* <Gallery></Gallery> */}
+        <CartProvider>
+          {/* <ChooseProduct></ChooseProduct> */}
+        <ShoppingBasket></ShoppingBasket>
+        </CartProvider>
+        <FlowerFooter></FlowerFooter>
+    </div>
   );
 }
 
