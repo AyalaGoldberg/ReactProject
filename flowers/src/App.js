@@ -1,4 +1,4 @@
-// 
+
 import React from 'react';
 import './App.css';
 
@@ -8,6 +8,9 @@ import ShoppingBasket from './components/shoppingCart/ShoppingBasket';
 import FlowerFooter from './components/footer/FlowerFooter';
 import { CartProvider } from './components/shoppingCart/CartOntext';
 import Gallery from './components/Galerry';
+import ChooseProduct from './components/ChooseProduct';
+import Nav from './components/nav/Nav';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   const products = [
@@ -30,13 +33,24 @@ function App() {
 
   return (
     <div className="App">
-        <Header></Header>
+      <CartProvider>
+        {/* <Nav></Nav> */}
+        {/* <Header></Header> */}
         {/* <Gallery></Gallery> */}
-        <CartProvider>
-          {/* <ChooseProduct></ChooseProduct> */}
-        <ShoppingBasket></ShoppingBasket>
-        </CartProvider>
-        <FlowerFooter></FlowerFooter>
+
+        {/* <ChooseProduct></ChooseProduct> */}
+        {/* <ShoppingBasket></ShoppingBasket> */}
+
+        {/* <FlowerFooter></FlowerFooter> */}
+        <Routes>
+          <Route path='/' element={<>
+            <Nav />
+            <Header />
+            {/* <Gallery products={products} /> */}
+          </>} />
+          <Route path='/shoppingBasket' element={<ShoppingBasket />} />
+        </Routes>
+      </CartProvider>
     </div>
   );
 }
