@@ -86,3 +86,9 @@ button:disabled {
     font-size: 14px;
     color: #666;
 }
+
+/* עיצוב עבור כותרת */
+h2 {
+    text-align: right;
+    margin-right: 130px; /* Adjust this value to align with the products */
+}

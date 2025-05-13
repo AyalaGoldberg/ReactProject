@@ -11,6 +11,7 @@ import Gallery from './components/Galerry';
 import ChooseProduct from './components/ChooseProduct';
 import Nav from './components/nav/Nav';
 import { Route, Routes } from 'react-router-dom';
+import PaymentDetails from './components/shoppingCart/PaymentDetails';
 
 function App() {
   const products = [
@@ -41,7 +42,7 @@ function App() {
         {/* <ChooseProduct></ChooseProduct> */}
         {/* <ShoppingBasket></ShoppingBasket> */}
 
-        {/* <FlowerFooter></FlowerFooter> */}
+        
         <Routes>
           <Route path='/' element={<>
             <Nav />
@@ -49,7 +50,9 @@ function App() {
             {/* <Gallery products={products} /> */}
           </>} />
           <Route path='/shoppingBasket' element={<ShoppingBasket />} />
+            <Route path='/paymentDetails' element={<PaymentDetails />} />
         </Routes>
+        <FlowerFooter></FlowerFooter>
       </CartProvider>
     </div>
   );

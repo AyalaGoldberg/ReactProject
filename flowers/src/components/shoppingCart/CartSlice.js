@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import img1 from '../../images/extrasImg/new-pic-flowernet-balloons-greyBG-100x100.jpg';
-import img2 from '../../images/extrasImg/new-pic-flowernet-יין-Dalton-אסטייט-מרלו-greyBG-100x100.jpg';
-import img3 from '../../images/extrasImg/new-pic-flowernet-balloons-greyBG-100x100.jpg';
-import img4 from '../../images/extrasImg/בלון-חג-שמח.jpeg';
+import img2 from '../../images/extrasImg/new-pic-flowernet-De-karina-–-with-love-greyBG-100x100.jpg';
+import img3 from '../../images/extrasImg/new-pic-flowernet-יין-Dalton-אסטייט-מרלו-greyBG-100x100.jpg';
+import img4 from '../../images/extrasImg/מוצרים-משלמים-כלים-ונרות-קטגוריה-4-100x100.jpg';
 import img5 from '../../images/extrasImg/גלויה-23.gif';
 import img6 from '../../images/extrasImg/מקרונים-בקופסא.gif';
-import img7 from '../../images/extrasImg/פרפרים.gif';
+import img7 from '../../images/extrasImg/products-701.jpg';
 
 const cartSlice = createSlice({
     name: "adiitionalProducts",
@@ -15,8 +15,8 @@ const cartSlice = createSlice({
         { id: 2, productImage: img2, stock: 5, price: 35, name: "שוקולדים ופרלינים"},
         { id: 3, productImage: img3, stock: 5, price: 100, name: "יינות"},
         { id: 4, productImage: img4, stock: 2, price: 62, name: "כלים ונרות"},
-        { id: 5, productImage: img5, stock: 33, price: 40, name: "בלון חג שמח"},
-        { id: 6, productImage: img6, stock: 8, price: 32, name: "כרטיס ברכה"},
+        { id: 5, productImage: img5, stock: 33, price: 40, name: "כרטיס ברכה"},
+        { id: 6, productImage: img6, stock: 8, price: 32, name: "מקרונים"},
         { id: 7, productImage: img7, stock: 10, price: 45, name: "פרלינים"}
     ],
     reducers: {
@@ -30,5 +30,5 @@ const cartSlice = createSlice({
     },
 });
 
-export const {updateAmount,updatePrice}=cartSlice.actions;
+export const {updateAmount}=cartSlice.actions;
 export default cartSlice.reducer;
