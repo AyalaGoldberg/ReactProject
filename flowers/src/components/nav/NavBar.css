@@ -7,7 +7,7 @@
     color: white;
     z-index: 1000; /* ודא שהוא מעל אלמנטים אחרים */
     position: relative; /* ודא שהוא לא מוסתר */
-    height: auto; /* ודא שיש לו גובה */
+    height: 20vh; /* גובה קבוע */
   }
 ***
 .navbar {
@@ -25,7 +25,7 @@
   }
   
   .navbar-logo img {
-    height: 40px;
+    height: 100px; /* גובה הלוגו */
     margin-right: 10px;
   }
   
