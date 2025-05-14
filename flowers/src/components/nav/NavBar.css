@@ -8,54 +8,91 @@
     z-index: 1000; /* ודא שהוא מעל אלמנטים אחרים */
     position: relative; /* ודא שהוא לא מוסתר */
     height: 20vh; /* גובה קבוע */
-  }
-***
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #282c34;
-    padding: 10px 20px;
-    color: white;
-  }
-  
-  .navbar-logo {
+}
+
+.navbar-logo {
     display: flex;
     align-items: center;
-  }
-  
-  .navbar-logo img {
+}
+
+.navbar-logo img {
     height: 100px; /* גובה הלוגו */
     margin-right: 10px;
-  }
-  
-  .navbar-links {
+}
+
+.navbar-links {
     list-style: none;
     display: flex;
     gap: 20px;
-  }
-  
-  .navbar-links li a {
+    justify-content: space-around; /* מפזר את הקישורים לרוחב */
+    width: 100%;
+}
+
+.navbar-links li a {
     text-decoration: none;
     color: #61dafb;
     font-size: 18px;
-  }
-  
-  .navbar-actions {
+}
+
+.navbar-actions {
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-  
-  .navbar-search {
+}
+
+.navbar-search {
     padding: 5px;
     font-size: 16px;
-  }
-  
-  .navbar-cart {
-    background: none;
-    border: none;
-    font-size: 24px;
+    width: 100%; /* מתאים את רוחב שדה החיפוש */
+    max-width: 100%; /* מגביל את הרוחב המקסימלי */
+}
+
+.search-results-container {
+    position: relative; /* מגדיר את המיקום היחסי של הקונטיינר */
+    margin-top: 5px; /* רווח קטן מעל התוצאות */
+    width: 100%; /* מתאים את הרוחב לשדה החיפוש */
+    max-width: 100%; /* מגביל את הרוחב המקסימלי */
+}
+
+.search-results {
+    position: absolute; /* מיקום מוחלט */
+    top: calc(100% + 5px); /* מתחיל מיד מתחת לשדה החיפוש עם רווח קטן */
+    left: 0; /* מיושר לשמאל */
+    background: #c9768b;
+    border: 1px solid #b3ac9e;
+    list-style: none;
+    padding: 10px; /* רווח פנימי */
+    margin: 0;
+    width: 100%; /* מתאים לרוחב שדה החיפוש */
+    z-index: 1000; /* מבטיח שהתוצאות יופיעו מעל אלמנטים אחרים */
+    max-width: 100%; /* מגביל את הרוחב המקסימלי */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* הצללה */
+    word-wrap: break-word; /* מאפשר למילים ארוכות לרדת שורה */
+}
+
+.search-results li {
+    padding: 5px 0;
     cursor: pointer;
-    color: white;
-  }
+}
+
+.search-results li:hover {
+    background: #f0f0f03a;
+}
+
+.no-results {
+    position: absolute; /* מיקום מוחלט */
+    top: calc(100% + 5px); /* מתחיל מיד מתחת לשדה החיפוש עם רווח קטן */
+    left: 0; /* מיושר לשמאל */
+    background: #c9768b; /* תואם את הרקע של תיבת התוצאות */
+    border: 1px solid #b3ac9e;
+    padding: 10px;
+    margin: 0;
+    width: 100%; /* מתאים לרוחב שדה החיפוש */
+    max-width: 100%; /* מגביל את הרוחב המקסימלי */
+    z-index: 1000; /* מבטיח שההודעה תופיע מעל אלמנטים אחרים */
+    color: white; /* צבע טקסט */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* הצללה */
+    font-size: 14px; /* גודל טקסט */
+    word-wrap: break-word; /* מאפשר למילים ארוכות לרדת שורה */
+}
