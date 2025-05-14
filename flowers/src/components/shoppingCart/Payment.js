@@ -13,7 +13,6 @@ export default function Payment() {
         if (productsForBuying.length === 0) {
             setIsModalOpen(true); // הצגת המודל אם העגלה ריקה
         } else {
-            alert("תשלום בוצע בהצלחה"); // הודעה לפני הניווט
             navigate("/paymentDetails"); // ניווט לדף פרטי התשלום
         }
     };

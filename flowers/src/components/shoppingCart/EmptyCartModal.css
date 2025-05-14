@@ -67,7 +67,7 @@
     justify-content: center; /* יישור אופקי */
     margin: 0 auto;
     max-height: 50px;
-    width: 100%; /* הכפתור יתפוס את כל הרוחב */
+    width: 100%; /* רוחב מלא */
     max-width: 100px; /* רוחב מקסימלי */
     box-sizing: border-box; /* לוודא שה-padding לא משפיע על הגודל */
 }

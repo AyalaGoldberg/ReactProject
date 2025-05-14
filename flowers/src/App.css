@@ -1,5 +1,15 @@
+body {
+  background: #f7f8fa;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
 .App {
   text-align: center;
+  padding: 32px 0 0 0;
+  min-height: 100vh;
+  background: #f7f8fa;
 }
 
 .App-logo {
@@ -26,6 +36,58 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  margin: 24px auto;
+  padding: 24px 16px;
+  max-width: 320px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.product-card h2 {
+  margin: 8px 0 4px 0;
+  font-size: 1.3em;
+}
+
+.product-card p {
+  margin: 4px 0;
+}
+
+.product-card button {
+  margin-top: 12px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.product-card button:hover {
+  background: #145ea8;
+}
+
+header, nav, footer {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .product-card {
+    max-width: 95vw;
+    padding: 12px 4vw;
+  }
 }
 
 @keyframes App-logo-spin {

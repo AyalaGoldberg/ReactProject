@@ -13,6 +13,7 @@ import Nav from './components/nav/Nav';
 import { Route, Routes } from 'react-router-dom';
 import PaymentDetails from './components/shoppingCart/PaymentDetails';
 
+
 function App() {
   const products = [
     {
@@ -47,7 +48,7 @@ function App() {
           <Route path='/' element={<>
             <Nav />
             <Header />
-            {/* <Gallery products={products} /> */}
+            <Gallery products={products} />
           </>} />
           <Route path='/shoppingBasket' element={<ShoppingBasket />} />
             <Route path='/paymentDetails' element={<PaymentDetails />} />

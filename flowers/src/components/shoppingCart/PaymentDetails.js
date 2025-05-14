@@ -1,8 +1,27 @@
 import './PaymentDetails.css';
+import React, { useState } from 'react';
+// import { motion } from 'framer-motion';
 
 export default function PaymentDetails() {
+    const [processingStep, setProcessingStep] = useState(0);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    //     <div className="my-container">
+    //   <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} />
+    // </div>
+        setProcessingStep(1); // מתחבר לחברת האשראי
+        setTimeout(() => {
+            setProcessingStep(2); // מתבצע תשלום
+            setTimeout(() => {
+                setProcessingStep(0);
+                alert("תשלום בוצע בהצלחה");
+            }, 3000); // 3 שניות
+        }, 4000); // 4 שניות
+    };
+
     return (
-        <form className="payment-details">
+        <form className="payment-details" onSubmit={handleSubmit}>
             <div className="personal-info section">
                 <h3>פרטים אישיים</h3>
                 <div className="row">
@@ -93,7 +112,23 @@ export default function PaymentDetails() {
                 <input type="text" placeholder="ברכות" className="large-input" />
             </div>
 
-            <button type="submit">שלח</button>
+            <button type="submit" disabled={processingStep !== 0}>שלח</button>
+            {processingStep === 1 && (
+                <div className="processing-animation credit-connect">
+                    מתחבר לחברת האשראי
+                    <span className="dot">.</span>
+                    <span className="dot">.</span>
+                    <span className="dot">.</span>
+                </div>
+            )}
+            {processingStep === 2 && (
+                <div className="processing-animation credit-connect">
+                    מתבצע תשלום
+                    <span className="dot">.</span>
+                    <span className="dot">.</span>
+                    <span className="dot">.</span>
+                </div>
+            )}
         </form>
     );
 }

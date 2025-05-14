@@ -8,13 +8,14 @@ export function CartProvider({children}) {
         setProductsForBuying(updatedProducts);
     }
     const addToCart = (product) => {
+        const quantityToAdd = product.quantity || 1;
         const existingProduct = productsForBuying.find(item => item.id === product.id);
         if (existingProduct) {
             setProductsForBuying(productsForBuying.map(item => 
-                item.id === product.id ? { ...item, amount: item.amount + 1 } : item
+                item.id === product.id ? { ...item, amount: item.amount + quantityToAdd } : item
             ));
         } else {
-            setProductsForBuying([...productsForBuying, { ...product, amount: 1 }]);
+            setProductsForBuying([...productsForBuying, { ...product, amount: quantityToAdd }]);
         }
     }
     return (
