@@ -1,23 +1,20 @@
-
 import React from 'react';
-import { useSelector } from 'react-redux';
-import Product from './Product'; // נניח שהקומפוננטה של המוצר נמצאת באותו תיקייה
+import Product from './Product';
 
-const Gallery = ({ products }) => {
+export default function Gallery({ products }) {
   return (
-    <div className="gallery">
-      {products.map((product) => (
+    <div>
+      {products.map(product => (
         <Product
-          key={product.code} // מפתח ייחודי לכל מוצר
+          key={product.id}
           image={product.image}
           price={product.price}
-          code={product.code}
-          type={product.type}
+          code={product.id}
+          type={product.name}
+          product={product}
         />
       ))}
     </div>
   );
-};
-
-export default Gallery;
+}
 

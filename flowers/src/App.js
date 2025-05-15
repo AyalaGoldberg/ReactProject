@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './App.css';
 
@@ -12,7 +11,8 @@ import ChooseProduct from './components/ChooseProduct';
 import Nav from './components/nav/Nav';
 import { Route, Routes } from 'react-router-dom';
 import PaymentDetails from './components/shoppingCart/PaymentDetails';
-
+import img1 from './images/headerImg/800_63f267227c49c.png';
+import img2 from './images/extrasImg/new-pic-flowernet-balloons-greyBG-100x100.jpg';
 
 function App() {
   const products = [
@@ -21,14 +21,14 @@ function App() {
       name: 'פרח אדום',
       description: 'פרח יפהפה בצבע אדום.',
       price: 20,
-      image: '/images/red-flower.jpg',
+      image: img1,
     },
     {
       id: 2,
       name: 'פרח כחול',
       description: 'פרח יפהפה בצבע כחול.',
       price: 25,
-      image: '/images/blue-flower.jpg',
+      image: img2,
     },
     // הוסף מוצרים נוספים כאן
   ];
