@@ -36,16 +36,16 @@ export default function Nav() {
                 <img src={logo} alt="Logo" />
             </div>
             <ul className="navbar-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#shop">Shop</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home">עמוד הבית</a></li>
+                <li><Link to="/about">אודותינו</Link></li>
+                <li><a href="#shop">חנות</a></li>
+                <li><a href="#contact">ליצירת קשר</a></li>
             </ul>
             <div className="navbar-actions">
                 <div className="search-area">
                     <input
                         type="text"
-                        placeholder="Search Products..."
+                        placeholder="לחיפוש מוצר..."
                         className="navbar-search"
                         value={searchTerm}
                         onChange={handleSearch}

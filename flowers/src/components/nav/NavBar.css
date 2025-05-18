@@ -6,22 +6,24 @@
     align-items: center;
     background: #731423;
     z-index: 1000;
-    height: 110px;
+    height: 15vh;
     box-shadow: 0 2px 12px rgba(200, 118, 139, 0.08);
     border-bottom: 2px solid #e89abf;
     font-family: 'Varela Round', 'Heebo', Arial, sans-serif;
     margin-top: 0;
+        direction: rtl;
+
 }
 
 .navbar-logo {
     display: flex;
     align-items: center;
-    margin-left: 24px;
+    margin-right: 24px;
 }
 
 .navbar-logo img {
-    height: 80px;
-    margin-right: 12px;
+    height: 15vh;
+    margin-left: 12px;
     filter: drop-shadow(0 2px 8px #e89abf33);
 }
 
@@ -29,6 +31,10 @@
     list-style: none;
     display: flex;
     gap: 32px;
+    justify-content: flex-end;
+    /* מיישר לימין */
+    flex-direction: row-reverse;
+    /* הופך את הסדר מימין לשמאל */
     justify-content: center;
     align-items: center;
     margin: 0;
@@ -43,6 +49,8 @@
     padding: 6px 16px;
     border-radius: 20px;
     transition: background 0.2s, color 0.2s;
+    direction: rtl;
+
 }
 
 .navbar-links li a:hover,
@@ -66,7 +74,8 @@
 
 .search-area {
     position: relative;
-    width: 45VW; /* רוחב שדה החיפוש וחלון התוצאות */
+    width: 45VW;
+    /* רוחב שדה החיפוש וחלון התוצאות */
 }
 
 .navbar-search {
@@ -80,6 +89,7 @@
     transition: border 0.2s;
     width: 100%;
     box-sizing: border-box;
+    direction: rtl;
 }
 
 .navbar-search:focus {
@@ -107,7 +117,7 @@
 
 .search-results-container {
     position: absolute;
-    top: 48px;
+    top: 110%;
     left: 0;
     width: 100%;
     z-index: 1000;

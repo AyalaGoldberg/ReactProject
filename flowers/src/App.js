@@ -74,6 +74,7 @@ import { Route, Routes } from 'react-router-dom';
 import PaymentDetails from './components/shoppingCart/PaymentDetails';
 import img1 from './images/headerImg/800_63f267227c49c.png';
 import img2 from './images/extrasImg/new-pic-flowernet-balloons-greyBG-100x100.jpg';
+import About from './components/About';
 
 function App() {
   const products = [
@@ -105,6 +106,7 @@ function App() {
               <Gallery products={products} />
             </>
           } />
+          <Route path="/about" element={<About />} />
           <Route path='/chooseProduct' element={<ChooseProduct />} />
           <Route path='/shoppingBasket' element={<ShoppingBasket />} />
           <Route path='/paymentDetails' element={<PaymentDetails />} />
