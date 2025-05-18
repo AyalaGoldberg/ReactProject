@@ -18,7 +18,7 @@ export default function Header() {
     }, []);
     return (
         <div className='headerImg'>
-            <h1>הבית לעיצובי פרחים לאירועים</h1>
+            {/* <h1>הבית לעיצובי פרחים לאירועים</h1> */}
             <img src={images[index]} />
         </div>
     );

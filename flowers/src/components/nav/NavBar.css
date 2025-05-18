@@ -1,98 +1,165 @@
 .navbar {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #282c34;
-    padding: 10px 20px;
-    color: white;
-    z-index: 1000; /* ודא שהוא מעל אלמנטים אחרים */
-    position: relative; /* ודא שהוא לא מוסתר */
-    height: 20vh; /* גובה קבוע */
+    background: #731423;
+    z-index: 1000;
+    height: 110px;
+    box-shadow: 0 2px 12px rgba(200, 118, 139, 0.08);
+    border-bottom: 2px solid #e89abf;
+    font-family: 'Varela Round', 'Heebo', Arial, sans-serif;
+    margin-top: 0;
 }
 
 .navbar-logo {
     display: flex;
     align-items: center;
+    margin-left: 24px;
 }
 
 .navbar-logo img {
-    height: 100px; /* גובה הלוגו */
-    margin-right: 10px;
+    height: 80px;
+    margin-right: 12px;
+    filter: drop-shadow(0 2px 8px #e89abf33);
 }
 
 .navbar-links {
     list-style: none;
     display: flex;
-    gap: 20px;
-    justify-content: space-around; /* מפזר את הקישורים לרוחב */
-    width: 100%;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar-links li a {
     text-decoration: none;
-    color: #61dafb;
-    font-size: 18px;
+    color: #f8d7e3;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.navbar-links li a:hover,
+.navbar-links li a:focus {
+    background: #f8d7e3;
+    color: #731423;
 }
 
 .navbar-actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    position: relative;
+    width: 250px;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin-right: 24px;
+
+}
+
+.search-area {
+    position: relative;
+    width: 45VW; /* רוחב שדה החיפוש וחלון התוצאות */
 }
 
 .navbar-search {
-    padding: 5px;
+    padding: 7px 14px;
     font-size: 16px;
-    width: 100%; /* מתאים את רוחב שדה החיפוש */
-    max-width: 100%; /* מגביל את הרוחב המקסימלי */
+    border: 1.5px solid #e89abf;
+    border-radius: 24px;
+    background: #f8d7e3;
+    color: #731423;
+    outline: none;
+    transition: border 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar-search:focus {
+    border: 1.5px solid #fff;
+    background: #fff9e5;
+}
+
+.navbar-cart {
+    background: #f8d7e3;
+    color: #731423;
+    border: none;
+    border-radius: 50%;
+    font-size: 22px;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #b7cbb233;
+    transition: background 0.2s;
+}
+
+.navbar-cart:hover {
+    background: #fff9e5;
+    color: #fff;
 }
 
 .search-results-container {
-    position: relative; /* מגדיר את המיקום היחסי של הקונטיינר */
-    margin-top: 5px; /* רווח קטן מעל התוצאות */
-    width: 100%; /* מתאים את הרוחב לשדה החיפוש */
-    max-width: 100%; /* מגביל את הרוחב המקסימלי */
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.search-results,
+.no-results {
+    background: #fff9e5;
+    border: 1.5px solid #e89abf;
+    border-radius: 16px;
+    padding: 12px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 4px 16px rgba(200, 118, 139, 0.12);
+    color: #731423;
+    font-size: 16px;
+    word-wrap: break-word;
+    text-align: center;
+    list-style: none;
 }
 
 .search-results {
-    position: absolute; /* מיקום מוחלט */
-    top: calc(100% + 5px); /* מתחיל מיד מתחת לשדה החיפוש עם רווח קטן */
-    left: 0; /* מיושר לשמאל */
-    background: #c9768b;
-    border: 1px solid #b3ac9e;
     list-style: none;
-    padding: 10px; /* רווח פנימי */
-    margin: 0;
-    width: 100%; /* מתאים לרוחב שדה החיפוש */
-    z-index: 1000; /* מבטיח שהתוצאות יופיעו מעל אלמנטים אחרים */
-    max-width: 100%; /* מגביל את הרוחב המקסימלי */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* הצללה */
-    word-wrap: break-word; /* מאפשר למילים ארוכות לרדת שורה */
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .search-results li {
-    padding: 5px 0;
+    padding: 6px 0;
     cursor: pointer;
+    border-bottom: 1px solid #f8d7e3;
+    transition: background 0.2s;
+    list-style: none;
+    text-align: center;
+}
+
+.search-results li:last-child {
+    border-bottom: none;
 }
 
 .search-results li:hover {
-    background: #f0f0f03a;
+    background: #f8d7e3;
+    color: #c9768b;
 }
 
 .no-results {
-    position: absolute; /* מיקום מוחלט */
-    top: calc(100% + 5px); /* מתחיל מיד מתחת לשדה החיפוש עם רווח קטן */
-    left: 0; /* מיושר לשמאל */
-    background: #c9768b; /* תואם את הרקע של תיבת התוצאות */
-    border: 1px solid #b3ac9e;
-    padding: 10px;
-    margin: 0;
-    width: 100%; /* מתאים לרוחב שדה החיפוש */
-    max-width: 100%; /* מגביל את הרוחב המקסימלי */
-    z-index: 1000; /* מבטיח שההודעה תופיע מעל אלמנטים אחרים */
-    color: white; /* צבע טקסט */
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* הצללה */
-    font-size: 14px; /* גודל טקסט */
-    word-wrap: break-word; /* מאפשר למילים ארוכות לרדת שורה */
+    color: #c9768b;
+    background: #fff9e5;
+    font-size: 15px;
+    border-radius: 16px;
+    padding: 14px;
 }
