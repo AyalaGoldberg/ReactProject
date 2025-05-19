@@ -69,13 +69,24 @@
     box-sizing: border-box;
     padding: 0;
     margin-right: 24px;
-
+    justify-content: flex-end; /* הוסף שורה זו להצמדת הכפתור לצד שמאל */
 }
 
 .search-area {
-    position: relative;
-    width: 45VW;
-    /* רוחב שדה החיפוש וחלון התוצאות */
+    width: 180px; /* קבע רוחב קבוע */
+    min-width: 120px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* כאשר אין חיפוש, שמור מקום ריק */
+.search-area:empty::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 38px;
 }
 
 .navbar-search {
@@ -113,6 +124,27 @@
 .navbar-cart:hover {
     background: #fff9e5;
     color: #fff;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    left: 22px;
+    background: #ff4d4d;
+    color: #fff;
+    border-radius: 50%;
+    min-width: 22px;
+    height: 22px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    border: 2px solid #fff;
+    z-index: 2;
+    pointer-events: none;
 }
 
 .search-results-container {

@@ -1,4 +1,4 @@
-.gallery-container {
+/* .gallery-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 32px;
@@ -17,4 +17,25 @@
         gap: 18px;
         padding: 18px 4px;
     }
+} */
+
+
+
+
+
+/* עיצוב כללי למעטפת הגלריה */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  padding: 32px;
+  background-color: #f8f9fa;
+}
+
+/* התאמה למסכים קטנים */
+@media (max-width: 600px) {
+  .gallery-container {
+    padding: 16px;
+    gap: 16px;
+  }
 }

@@ -1,51 +1,62 @@
 import React, { useState } from "react";
 import Modal from 'react-modal';
 import ChooseProduct from "./ChooseProduct";
+import './Product.css';
 
 Modal.setAppElement('#root'); // חשוב למניעת אזהרות
 
-function Product({ image, price, code, type, product, addToCart }) {
+function Product({ image,description, price, code, type, product, addToCart }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const handleAddToCart = () => {
-    addToCart({ ...product, quantity });
+  // const handleAddToCart = (e) => {
+  //   e.stopPropagation();
+  //   addToCart({ ...product, quantity });
+  //   closeModal();
+  // };
+
+  const handleCloseModal = (e) => {
+    e.stopPropagation();
     closeModal();
   };
 
-  // const Product = ({ image, price, code, type }) => {
-    return (
-      <div className="product-card">
-        <img src={image} alt={type} />
-        <h2>{type}</h2>
-        <p>Product Code: {code}</p>
-        <p>Price: ${price}</p>
+  return (
+    <div className="product-card" onClick={openModal} style={{ cursor: "pointer" }}>
+      <img src={image} alt={type} />
+      <h2>{type}</h2>
+      <p>{description}</p>
+      <p>Price: ${price}</p>
 
-        <ChooseProduct product={product}></ChooseProduct>
-
-        <Modal isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Product Details">
-          <h2>{product.name}</h2>
-          <img src={product.image} alt={product.name} style={{ width: '100%' }} />
-          <p>{product.description}</p>
-          <p>מחיר: {product.price} ₪</p>
-          <label>
-            כמות:
-            <input
-              type="number"
-              min="1"
-              value={quantity}
-              onChange={(e) => setQuantity(Number(e.target.value))}
-            />
-          </label>
-          <button onClick={handleAddToCart}>הוסף לעגלה</button>
-          <button onClick={closeModal}>סגור</button>
-        </Modal>
-      </div>
-    );
-  };
-// }
+      <Modal isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Product Details">
+        <button className="modal-close-x" onClick={handleCloseModal} title="סגור">×</button>
+        <div className="modal-content-flex">
+          <div className="modal-image-col">
+            <img src={product.image || image} alt={product.name || type} />
+          </div>
+          <div className="modal-info-col">
+            <h2>{product.name}</h2>
+            <p>{product.description}</p>
+            <p>מחיר: {product.price} ₪</p>
+            <label>
+              כמות:
+              <input
+                type="number"
+                min="1"
+                value={quantity}
+                onChange={(e) => setQuantity(Number(e.target.value))}
+                onClick={e => e.stopPropagation()}
+              />
+            </label>
+          </div>
+        </div>
+        <ChooseProduct product={product} onChoose={closeModal} />
+        {/* הסר את כפתור הסגירה הישן */}
+      </Modal>
+    </div>
+  );
+}
 
 export default Product;

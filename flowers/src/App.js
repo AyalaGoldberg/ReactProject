@@ -60,8 +60,9 @@
 // }
 
 // export default App;
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import { useLocation } from 'react-router-dom';
 
 import Header from './components/Header';
 import ShoppingBasket from './components/shoppingCart/ShoppingBasket';
@@ -77,69 +78,73 @@ import img2 from './images/extrasImg/new-pic-flowernet-balloons-greyBG-100x100.j
 import About from './components/About';
 
 function App() {
-  const products = [
-    {
-      id: 1,
-      name: 'פרח אדום',
-      description: 'פרח יפהפה בצבע אדום.',
-      price: 20,
-      image: img1,
-    },
-    {
-      id: 2,
-      name: 'פרח כחול',
-      description: 'פרח יפהפה בצבע כחול.',
-      price: 25,
-      image: img2,
-    },{
-      id: 2,
-      name: 'פרח כחול',
-      description: 'פרח יפהפה בצבע כחול.',
-      price: 25,
-      image: img2,
-    },{
-      id: 2,
-      name: 'פרח כחול',
-      description: 'פרח יפהפה בצבע כחול.',
-      price: 25,
-      image: img2,
-    },{
-      id: 2,
-      name: 'פרח כחול',
-      description: 'פרח יפהפה בצבע כחול.',
-      price: 25,
-      image: img2,
-    },{
-      id: 2,
-      name: 'פרח כחול',
-      description: 'פרח יפהפה בצבע כחול.',
-      price: 25,
-      image: img2,
-    },{
-      id: 2,
-      name: 'פרח כחול',
-      description: 'פרח יפהפה בצבע כחול.',
-      price: 25,
-      image: img2,
-    },{
-      id: 2,
-      name: 'פרח כחול',
-      description: 'פרח יפהפה בצבע כחול.',
-      price: 25,
-      image: img2,
-    },
-    // הוסף מוצרים נוספים כאן
-  ];
+  // const products = [
+  //   {
+  //     id: 1,
+  //     name: 'פרח אדום',
+  //     description: 'פרח יפהפה בצבע אדום.',
+  //     price: 20,
+  //     image: img1,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'פרח כחול',
+  //     description: 'פרח יפהפה בצבע כחול.',
+  //     price: 25,
+  //     image: img2,
+  //   },{
+  //     id: 2,
+  //     name: 'פרח כחול',
+  //     description: 'פרח יפהפה בצבע כחול.',
+  //     price: 25,
+  //     image: img2,
+  //   },{
+  //     id: 2,
+  //     name: 'פרח כחול',
+  //     description: 'פרח יפהפה בצבע כחול.',
+  //     price: 25,
+  //     image: img2,
+  //   },{
+  //     id: 2,
+  //     name: 'פרח כחול',
+  //     description: 'פרח יפהפה בצבע כחול.',
+  //     price: 25,
+  //     image: img2,
+  //   },{
+  //     id: 2,
+  //     name: 'פרח כחול',
+  //     description: 'פרח יפהפה בצבע כחול.',
+  //     price: 25,
+  //     image: img2,
+  //   },{
+  //     id: 2,
+  //     name: 'פרח כחול',
+  //     description: 'פרח יפהפה בצבע כחול.',
+  //     price: 25,
+  //     image: img2,
+  //   },{
+  //     id: 2,
+  //     name: 'פרח כחול',
+  //     description: 'פרח יפהפה בצבע כחול.',
+  //     price: 25,
+  //     image: img2,
+  //   },
+  //   // הוסף מוצרים נוספים כאן
+  // ];
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const location = useLocation();
+  const showSearch = location.pathname === '/' || location.pathname === '/shop'; // דפים שרוצים חיפוש
 
   return (
     <div className="App">
       <CartProvider>
-        <Nav />
+        <Nav searchTerm={searchTerm} setSearchTerm={setSearchTerm} showSearch={showSearch} />
         <Routes>
           <Route path='/' element={
             <>
               <Header />
-              <Gallery products={products} />
+              <Gallery searchTerm={searchTerm} />
             </>
           } />
           <Route path="/about" element={<About />} />
