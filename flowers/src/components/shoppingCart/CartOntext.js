@@ -6,8 +6,10 @@ export function CartProvider({children}) {
     const removeItem = (id) => {
         const updatedProducts = productsForBuying.filter((item) => item.id !== id);
         setProductsForBuying(updatedProducts);
+        alert("המוצר הוסר מהעגלה");
     }
     const addToCart = (product) => {
+        // if(!product) return;
         const quantityToAdd = product.quantity || 1;
         const existingProduct = productsForBuying.find(item => item.id === product.id);
         if (existingProduct) {
@@ -19,7 +21,7 @@ export function CartProvider({children}) {
         }
     }
     return (
-        <CartContext.Provider value={{ productsForBuying, addToCart }}>
+        <CartContext.Provider value={{ productsForBuying, addToCart ,removeItem}}>
             {children}
         </CartContext.Provider>
     );

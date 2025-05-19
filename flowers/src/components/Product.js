@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from 'react-modal';
+import ChooseProduct from "./ChooseProduct";
 
 Modal.setAppElement('#root'); // חשוב למניעת אזהרות
 
@@ -22,6 +23,8 @@ function Product({ image, price, code, type, product, addToCart }) {
         <h2>{type}</h2>
         <p>Product Code: {code}</p>
         <p>Price: ${price}</p>
+
+        <ChooseProduct product={product}></ChooseProduct>
 
         <Modal isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Product Details">
           <h2>{product.name}</h2>

@@ -91,6 +91,42 @@ function App() {
       description: 'פרח יפהפה בצבע כחול.',
       price: 25,
       image: img2,
+    },{
+      id: 2,
+      name: 'פרח כחול',
+      description: 'פרח יפהפה בצבע כחול.',
+      price: 25,
+      image: img2,
+    },{
+      id: 2,
+      name: 'פרח כחול',
+      description: 'פרח יפהפה בצבע כחול.',
+      price: 25,
+      image: img2,
+    },{
+      id: 2,
+      name: 'פרח כחול',
+      description: 'פרח יפהפה בצבע כחול.',
+      price: 25,
+      image: img2,
+    },{
+      id: 2,
+      name: 'פרח כחול',
+      description: 'פרח יפהפה בצבע כחול.',
+      price: 25,
+      image: img2,
+    },{
+      id: 2,
+      name: 'פרח כחול',
+      description: 'פרח יפהפה בצבע כחול.',
+      price: 25,
+      image: img2,
+    },{
+      id: 2,
+      name: 'פרח כחול',
+      description: 'פרח יפהפה בצבע כחול.',
+      price: 25,
+      image: img2,
     },
     // הוסף מוצרים נוספים כאן
   ];

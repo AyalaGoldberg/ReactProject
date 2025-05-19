@@ -1,8 +1,11 @@
+import { Navigate } from 'react-router-dom';
 import './PaymentDetails.css';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function PaymentDetails() {
     const [processingStep, setProcessingStep] = useState(0);
+    const navigate = useNavigate(); // הוסף שורה זו
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -11,7 +14,10 @@ export default function PaymentDetails() {
             setProcessingStep(2); // מתבצע תשלום
             setTimeout(() => {
                 setProcessingStep(0);
-                alert("תשלום בוצע בהצלחה");
+                setTimeout(() => {
+                    alert("התשלום בוצע בהצלחה! תודה על רכישתך.");
+                    navigate("/"); // השתמש ב-hook
+                }, 100); // השהיה קצרה כדי לאפשר לרנדר להסתיים
             }, 3000); // 3 שניות
         }, 4000); // 4 שניות
     };

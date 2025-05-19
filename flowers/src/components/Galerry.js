@@ -1,9 +1,10 @@
 import React from 'react';
 import Product from './Product';
+import './Galerry.css';
 
 export default function Gallery({ products }) {
   return (
-    <div>
+    <div className="gallery-container">
       {products.map(product => (
         <Product
           key={product.id}
