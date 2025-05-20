@@ -73,12 +73,11 @@
 //                     <button className="navbar-cart">🛒</button>
 //                 </Link>
 //             </div>
-//         </nav>
 // }
 
 
 
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import logo from "../../images/logo.png";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
@@ -91,6 +90,7 @@ export default function Nav({ searchTerm, setSearchTerm, showSearch }) {
     const userSelected = useRef(false);
     const { productsForBuying } = useCart();
     const cartCount = productsForBuying.reduce((sum, item) => sum + (item.amount || 1), 0);
+    const [shopDropdownOpen, setShopDropdownOpen] = useState(false);
 
     const mockProducts = productsState?.products.map(product => product.name) || [];
 
@@ -115,7 +115,21 @@ export default function Nav({ searchTerm, setSearchTerm, showSearch }) {
             <ul className="navbar-links">
                 <li><Link to="/">עמוד הבית</Link></li>
                 <li><Link to="/about">אודותינו</Link></li>
-                <li><Link to="/shop">חנות</Link></li>
+                <li
+                    onMouseEnter={() => setShopDropdownOpen(true)}
+                    onMouseLeave={() => setShopDropdownOpen(false)}
+                    style={{ position: "relative" }}
+                >
+                    <Link to="/shop">חנות</Link>
+                    {shopDropdownOpen && (
+                        <ul className="dropdown-list">
+                            <li><Link to="/shop/barDesigns">עיצובי בר</Link></li>
+                            <li><Link to="/shop/calasChairs">כסאות כלה</Link></li>
+                            <li><Link to="/shop/calasBouquets">זרים לכלה</Link></li>
+                            <li><Link to="/shop/hupotDesigns">עיצובי חופות</Link></li>
+                        </ul>
+                    )}
+                </li>
                 <li><Link to="/contact">ליצירת קשר</Link></li>
             </ul>
             <div className="navbar-actions">
