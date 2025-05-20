@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 export default function AdditionalProducts() {
    
     const Extras = useSelector((state) => state.cart);
-
+    
     const [beginIndex, setBeginIndex] = useState(2);
     const [endIndex, setEndIndex] = useState(6);
 

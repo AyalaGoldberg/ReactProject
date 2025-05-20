@@ -2,10 +2,12 @@ import { Navigate } from 'react-router-dom';
 import './PaymentDetails.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from "./CartOntext";
 
 export default function PaymentDetails() {
     const [processingStep, setProcessingStep] = useState(0);
-    const navigate = useNavigate(); // הוסף שורה זו
+    const navigate = useNavigate();
+    const { cleanCart } = useCart(); 
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,6 +18,7 @@ export default function PaymentDetails() {
                 setProcessingStep(0);
                 setTimeout(() => {
                     alert("התשלום בוצע בהצלחה! תודה על רכישתך.");
+                    cleanCart(); // נקה את המצב
                     navigate("/"); // השתמש ב-hook
                 }, 100); // השהיה קצרה כדי לאפשר לרנדר להסתיים
             }, 3000); // 3 שניות

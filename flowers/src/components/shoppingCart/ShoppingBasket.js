@@ -22,7 +22,7 @@ export default function ShoppingBasket() {
                         productsForBuying.map((element) => (
                             <div className="product-card" key={element.id}>
                                 <button className="remove-button" onClick={() => removeItem(element.id)}>X</button>
-                                <img src={element.image} alt={element.name} />
+                                <img src={ element.productImage} alt={element.name} />
                                 <div>
                                     <p>{element.name}</p>
                                     <p>{element.price} ₪</p>
