@@ -1,9 +1,7 @@
 import Modal from 'react-modal';
-import { useState } from 'react';
-import ChooseProduct from './ChooseProduct';
 import './ProductModal.css';
 
-export default function ProductModal({ 
+export default function ProductModal({
     isOpen,
     onRequestClose,
     product,
@@ -11,15 +9,23 @@ export default function ProductModal({
     image,
     quantity,
     setQuantity,
-    forBuying }) {
+    forBuying,
+    onAddToCart
+}) {
+    // עוטפים את הפונקציות בעצירת bubbling
+    const handleClose = (e) => {
+        e.stopPropagation();
+        onRequestClose();
+    };
 
-    const closeModal = (e) => {
-        onRequestClose(e);
-    }
+    const handleAdd = (e) => {
+        e.stopPropagation();
+        onAddToCart();
+    };
 
     return (
         <Modal isOpen={isOpen} onRequestClose={onRequestClose} contentLabel="Product Details">
-            <button className="modal-close-x" onClick={closeModal} title="סגור">×</button>
+            <button className="modal-close-x" onClick={handleClose} title="סגור">×</button>
             <div className="modal-title-centered">
                 <h2>{product.name}</h2>
             </div>
@@ -42,18 +48,25 @@ export default function ProductModal({
                                             setQuantity(Number(e.target.value));
                                         }
                                     }}
-                                    onClick={e => e.stopPropagation()}
                                     style={{ width: "48px", textAlign: "center" }}
+                                    onClick={e => e.stopPropagation()}
                                 />
                             ) : (
                                 <span>{typeof quantity === "number" ? quantity : 1}</span>
                             )
                         }
                     </div>
+                    {forBuying && (
+                        <button
+                            className="add-to-cart-btn"
+                            onClick={handleAdd}
+                            style={{ marginTop: "16px" }}
+                        >
+                            הוסף לעגלה
+                        </button>
+                    )}
                 </div>
             </div>
-            {forBuying && (<ChooseProduct product={product}/>)}
         </Modal>
     );
 }
-

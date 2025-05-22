@@ -1,45 +1,35 @@
 import React, { useState } from "react";
-import Modal from 'react-modal';
-import ChooseProduct from "./ChooseProduct";
-import './Product.css';
 import ProductModal from "./ProductModal";
+import './Product.css';
 import { useCart } from "./shoppingCart/CartOntext";
-
-Modal.setAppElement('#root'); // חשוב למניעת אזהרות
 
 function Product({ image, description, price, code, type, product }) {
   const [quantity, setQuantity] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { addToCart } = useCart();
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCloseModal = (e) => {
-    e.stopPropagation();
-    closeModal();
-  };
-
-  const handleAddToCart = () => {
-    // ודא שהכמות מועברת נכון
-    addToCart({ ...product, quantity });
+  const openModal = () => setIsModalOpen(true);
+// כאן מאפסים את הכמות רק בסגירה!
+const closeModal = () => {
     setIsModalOpen(false);
     setQuantity(1);
-  };
+};
+
+const handleAddToCart = () => {
+    addToCart({ ...product, amount: quantity });
+    setIsModalOpen(false);
+    setQuantity(1); // אפשר גם כאן, אבל עדיף רק בסגירה
+};
 
   return (
     <div className="product-card" onClick={openModal} style={{ cursor: "pointer" }}>
       <img src={image} alt={type} />
       <h2>{type}</h2>
       <p>{description}</p>
-      <p>Price: ${price}</p>
+      <p>מחיר: {price} ₪</p>
       <ProductModal
         isOpen={isModalOpen}
-        onRequestClose={handleCloseModal}
+        onRequestClose={closeModal}
         product={product}
         type={type}
         image={image}
@@ -47,8 +37,7 @@ function Product({ image, description, price, code, type, product }) {
         setQuantity={setQuantity}
         forBuying={true}
         onAddToCart={handleAddToCart}
-        />
-
+      />
     </div>
   );
 }

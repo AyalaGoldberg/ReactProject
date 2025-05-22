@@ -12,8 +12,7 @@ export function CartProvider({ children }) {
         setTimeout(() => setShowMsg2(false), 2000);
     }
     const addToCart = (product) => {
-        // if(!product) return;
-        const quantityToAdd = product.quantity || 1;
+        const quantityToAdd = product.amount || product.quantity || 1;
         const existingProduct = productsForBuying.find(item => item.id === product.id);
         if (existingProduct) {
             setProductsForBuying(productsForBuying.map(item =>
