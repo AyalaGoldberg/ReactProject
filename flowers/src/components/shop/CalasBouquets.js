@@ -2,7 +2,7 @@ import Gallery from "../Galerry";
 import { useSelector } from "react-redux";
 import Product from "../Product";
 
-export default function BarDesigns({ searchTerm }) {
+export default function CalasBouquets({ searchTerm }) {
     const productsState = useSelector(state => state.products);
   const allProducts = productsState?.calasBouquets || [];
 

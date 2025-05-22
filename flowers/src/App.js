@@ -1,7 +1,8 @@
-
 import React, { useState } from 'react';
 import './App.css';
 import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 import Header from './components/Header';
 import ShoppingBasket from './components/shoppingCart/ShoppingBasket';
@@ -25,6 +26,35 @@ function App() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const location = useLocation();
+  const productsState = useSelector(state => state.products);
+  const [productsToSearch, setProductsToSearch] = useState([]);
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case '/shop/barDesigns':
+        setProductsToSearch(productsState?.barDesigns || []);
+        break;
+      case '/shop/calasChairs':
+        setProductsToSearch(productsState?.calasChair || []);
+        break;
+      case '/shop/calasBouquets':
+        setProductsToSearch(productsState?.calasBouquets || []);
+        break;
+      case '/shop/hupotDesigns':
+        setProductsToSearch(productsState?.hupotDesigns || []);
+        break;
+      case '/':
+        setProductsToSearch(productsState?.products || []);
+        break;
+      default:
+        setProductsToSearch([]);
+    }
+  }, [location.pathname, productsState]);
+
+  useEffect(() => {
+    setSearchTerm("");
+  }, [location.pathname]);
+
   const showSearch = location.pathname === '/' ||
   location.pathname === '/shop/calasChairs'||
   location.pathname === '/shop/calasBouquets'||
@@ -37,7 +67,12 @@ function App() {
   return (
     <div className="App">
       <CartProvider>
-        <Nav searchTerm={searchTerm} setSearchTerm={setSearchTerm} showSearch={showSearch} />
+        <Nav
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          showSearch={showSearch}
+          productsToSearch={productsToSearch}
+        />
         <Routes>
           <Route path='/' element={
             <>
@@ -49,10 +84,10 @@ function App() {
           <Route path='/chooseProduct' element={<ChooseProduct />} />
           <Route path='/shoppingBasket' element={<ShoppingBasket />} />
           <Route path='/paymentDetails' element={<PaymentDetails />} />
-          <Route path='/shop/hupotDesigns' element={<HupotDesigns />} />
-          <Route path='/shop/barDesigns' element={<BarDesigns />} />
-          <Route path='/shop/calasChairs' element={<CalasChairs/>} />
-          <Route path='/shop/calasBouquets' element={<CalasBouquets/>} />
+          <Route path='/shop/hupotDesigns' element={<HupotDesigns searchTerm={searchTerm} />} />
+          <Route path='/shop/barDesigns' element={<BarDesigns searchTerm={searchTerm} />} />
+          <Route path='/shop/calasChairs' element={<CalasChairs searchTerm={searchTerm} />} />
+          <Route path='/shop/calasBouquets' element={<CalasBouquets searchTerm={searchTerm} />} />
         </Routes>
         <FlowerFooter />
       </CartProvider>
@@ -60,4 +95,9 @@ function App() {
   );
 }
 
+//מה נשאר:
+//במוצרים הנוספים-שהכות תעבוד ושיתווסף לסל
+//עיצוב התשלום בסל הקניות
+//עדכון הכמות מהמודל לפני ההוספה לסל
+//דף ליצרת קשר
 export default App;

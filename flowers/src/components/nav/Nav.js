@@ -83,27 +83,15 @@ import "./NavBar.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useCart } from "../shoppingCart/CartOntext";
+import SearchBox from "./SearchBox";
 
-export default function Nav({ searchTerm, setSearchTerm, showSearch }) {
-    const [filteredProducts, setFilteredProducts] = useState([]);
-    const productsState = useSelector(state => state.products);
-    const userSelected = useRef(false);
+export default function Nav({ searchTerm, setSearchTerm, showSearch, productsToSearch }) {
     const { productsForBuying } = useCart();
     const cartCount = productsForBuying.reduce((sum, item) => sum + (item.amount || 1), 0);
     const [shopDropdownOpen, setShopDropdownOpen] = useState(false);
 
-    const mockProducts = productsState?.products.map(product => product.name) || [];
 
-    const handleSearch = (e) => {
-        const value = e.target.value;
-        userSelected.current = false; // אפס את הדגל כשמשתמש מקליד
-        setFilteredProducts(
-            mockProducts.filter(product =>
-                product.toLowerCase().includes(value.toLowerCase())
-            )
-        );
-        setSearchTerm(value);
-    };
+
 
     return (
         <nav className="navbar">
@@ -120,7 +108,7 @@ export default function Nav({ searchTerm, setSearchTerm, showSearch }) {
                     onMouseLeave={() => setShopDropdownOpen(false)}
                     style={{ position: "relative" }}
                 >
-                    <Link to="/shop">חנות</Link>
+                    <Link to="" onClick={e => e.preventDefault()}>חנות</Link>
                     {shopDropdownOpen && (
                         <ul className="dropdown-list">
                             <li><Link to="/shop/barDesigns">עיצובי בר</Link></li>
@@ -134,36 +122,11 @@ export default function Nav({ searchTerm, setSearchTerm, showSearch }) {
             </ul>
             <div className="navbar-actions">
                 {showSearch && (
-                  <div className="search-area">
-                    <input
-                        type="text"
-                        placeholder="לחיפוש מוצר..."
-                        className="navbar-search"
-                        value={searchTerm}
-                        onChange={handleSearch}
+                    <SearchBox
+                        searchTerm={searchTerm}
+                        setSearchTerm={setSearchTerm}
+                        productsToSearch={productsToSearch}
                     />
-                    <div className="search-results-container">
-                        {filteredProducts.length > 0 && searchTerm ? (
-                            <ul className="search-results">
-                                {filteredProducts.map((product, index) => (
-                                    <li
-                                        key={index}
-                                        onClick={() => {
-                                            setSearchTerm(product);
-                                            setFilteredProducts([]);
-                                            userSelected.current = true; // סימון שבחר משתמש
-                                        }}
-                                        style={{ cursor: "pointer" }}
-                                    >
-                                        {product}
-                                    </li>
-                                ))}
-                            </ul>
-                        ) : (searchTerm && filteredProducts.length === 0 && mockProducts.length > 0 && !userSelected.current) ? (
-                            <p className="no-results">מצטערים. לא נמצאו פריטים התואמים את החיפוש שלך</p>
-                        ) : null}
-                    </div>
-                  </div>
                 )}
                 <Link to="/shoppingBasket" style={{ position: "relative" }}>
                     <button className="navbar-cart">🛒</button>

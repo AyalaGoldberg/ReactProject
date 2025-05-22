@@ -34,7 +34,15 @@ export default function ShoppingBasket() {
                                 onClick={() => openModal(element)}
                                 style={{ cursor: "pointer" }}
                             >
-                                <button className="remove-button" onClick={() => removeItem(element.id)}>X</button>
+                                <button
+                                    className="remove-button"
+                                    onClick={e => {
+                                        e.stopPropagation();
+                                        removeItem(element.id);
+                                    }}
+                                >
+                                    X
+                                </button>
                                 <img src={element.productImage} alt={element.name} />
                                 <div>
                                     <p>{element.name}</p>

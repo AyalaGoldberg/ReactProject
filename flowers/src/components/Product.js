@@ -3,12 +3,15 @@ import Modal from 'react-modal';
 import ChooseProduct from "./ChooseProduct";
 import './Product.css';
 import ProductModal from "./ProductModal";
+import { useCart } from "./shoppingCart/CartOntext";
 
 Modal.setAppElement('#root'); // חשוב למניעת אזהרות
 
 function Product({ image, description, price, code, type, product }) {
   const [quantity, setQuantity] = useState(1);
-const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { addToCart } = useCart();
+
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -16,12 +19,16 @@ const [isModalOpen, setIsModalOpen] = useState(false);
     setIsModalOpen(false);
   };
 
-
-
-
   const handleCloseModal = (e) => {
     e.stopPropagation();
     closeModal();
+  };
+
+  const handleAddToCart = () => {
+    // ודא שהכמות מועברת נכון
+    addToCart({ ...product, quantity });
+    setIsModalOpen(false);
+    setQuantity(1);
   };
 
   return (
@@ -39,6 +46,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
         quantity={quantity}
         setQuantity={setQuantity}
         forBuying={true}
+        onAddToCart={handleAddToCart}
         />
 
     </div>
