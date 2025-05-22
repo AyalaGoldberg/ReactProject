@@ -36,6 +36,7 @@ export default function ShoppingBasket() {
                             >
                                 <button
                                     className="remove-button"
+                        
                                     onClick={e => {
                                         e.stopPropagation();
                                         removeItem(element.id);

@@ -30,7 +30,7 @@
 .product-card h2 {
   margin: 10px 0 6px 0;
   font-size: 1.25em;
-  color: #1976d2;
+  color: #6a0b1b;
   text-align: center;
   width: 100%;
 }
@@ -46,7 +46,7 @@
   padding: 8px 22px;
   border-radius: 7px;
   border: none;
-  background: #1976d2;
+  /* background: #1976d2; */
   color: #fff;
   font-weight: bold;
   cursor: pointer;
@@ -55,7 +55,7 @@
   box-shadow: 0 1px 4px rgba(25, 118, 210, 0.08);
 }
 .product-card button:hover {
-  background: #145ea8;
+  /* background: #14a820; */
 }
 
 /* עיצוב המודאל */

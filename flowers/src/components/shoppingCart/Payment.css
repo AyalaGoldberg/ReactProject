@@ -17,16 +17,16 @@
     font-size: 1.2rem;
     color: #333;
 }
-
+/* 
 .payment-container h3 {
     margin: 10px 0;
     font-size: 1.5rem;
-    color: #007bff;
-}
+    color: #4fb131;
+} */
 
 /* עיצוב עבור הכפתור */
-.payment-button {
-    background-color: #007bff;
+/* .payment-button {
+    background-color: #29a123;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -37,8 +37,8 @@
 }
 
 .payment-button:hover {
-    background-color: #0056b3;
-}
+    background-color: #51c63a;
+} */
 
 /* עיצוב עבור המודל */
 .empty-cart-modal {
@@ -78,7 +78,7 @@
 }
 
 .empty-cart-modal button {
-    background-color: #007bff;
+    background-color: #9b232f;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -88,5 +88,5 @@
 }
 
 .empty-cart-modal button:hover {
-    background-color: #0056b3;
+    background-color: #cf7382;
 }

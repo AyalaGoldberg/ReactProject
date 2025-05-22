@@ -59,8 +59,8 @@
 
 /* עיצוב עבור כפתור ההסרה */
 .remove-button {
-  background-color: #ff4d4d;
-  color: white;
+  background-color: #731423;
+  color: #fff;
   border: none;
   border-radius: 50%;
   width: 30px;
@@ -72,7 +72,7 @@
 }
 
 .remove-button:hover {
-  background-color: #ff1a1a;
+  background-color: #bc1436;
 }
 
 /* עיצוב עבור רכיב התשלום */
@@ -95,32 +95,32 @@
 
 .payment-container h3 {
   font-size: 24px;
-  color: #007bff;
+  color: #832020;
   margin-bottom: 20px;
   font-weight: bold;
 }
 
 .payment-button {
-  background-color: #28a745; /* Green for a more inviting look */
-  color: white;
+  background-color: #862e34;
+  color: #fff;
   border: none;
-  padding: 12px 25px; /* Larger padding for better appearance */
-  font-size: 1.1rem; /* Slightly larger font size */
+  height: 1.5cm;
+  width: 5cm;
+  padding: 0;
+  font-size: 1.1rem;
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 20px; /* Add spacing above the button */
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  margin-top: 24px;
+  box-shadow: 0 2px 8px rgba(56, 142, 60, 0.08);
+  letter-spacing: 1px;
+  text-align: center;
+  display: block;
+  line-height: 1.5cm;
 }
-
-.payment-button:hover {
-  background-color: #218838; /* Darker green on hover */
-  transform: translateY(-3px); /* Subtle lift effect */
-}
-
-.payment-button:active {
-  background-color: #1e7e34; /* Even darker green on click */
-  transform: translateY(0);
+.payment-button:hover{
+    background-color: #dc8f94;
 }
 
 /* עיצוב עבור רכיב המוצרים המשלימים */
@@ -213,12 +213,27 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.payment-and-empty {
-  flex: 1;
+.payment-container-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-start;
+  min-width: 260px;
+  max-width: 320px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.payment-container {
+  width: 100%;
+  min-width: 240px;
+  max-width: 320px;
+  box-sizing: border-box;
+  /* שמור על גובה מינימלי וסביר */
+  min-height: 220px;
+  max-height: 350px;
+  overflow: auto;
+  margin: 0 auto;
 }
 
 /* עיצוב מיוחד למוצרים שבסל הקניות בלבד */

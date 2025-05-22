@@ -14,7 +14,7 @@
 
 /* עיצוב עבור כפתורי הניווט */
 button {
-    background-color: #007bff;
+    background-color: #731423;
     color: white;
     border: none;
     border-radius: 8px;
@@ -32,7 +32,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #a8324a;
     transform: translateY(-2px);
 }
 

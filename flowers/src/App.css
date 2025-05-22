@@ -41,7 +41,7 @@ body {
 .product-card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   margin: 24px auto;
   padding: 24px 16px;
   max-width: 320px;
@@ -69,17 +69,20 @@ body {
   padding: 8px 18px;
   border-radius: 6px;
   border: none;
-  background: #1976d2;
+  background: F#1976d2;
   color: #fff;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s;
 }
+
 .product-card button:hover {
-  background: #145ea8;
+  background: #9a2e47;
 }
 
-header, nav, footer {
+header,
+nav,
+footer {
   margin-bottom: 24px;
 }
 
@@ -119,14 +122,20 @@ header, nav, footer {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
