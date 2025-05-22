@@ -36,10 +36,14 @@
 }
 
 .product-card img {
-  width: 80px;
-  height: 80px;
+  width: 28px;
+  height: 28px;
   border-radius: 8px;
   object-fit: cover;
+  margin-right: 18px;
+  margin-left: 0;
+  border: none;
+  background: #f7f7f7;
 }
 
 .product-card div {
@@ -217,6 +221,66 @@
   align-items: center;
 }
 
+/* עיצוב מיוחד למוצרים שבסל הקניות בלבד */
+.shopping-basket-container .product-card {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 10px;
+  margin-bottom: 14px;
+  /* הוסף ריווח פנימי שווה מכל הצדדים */
+  box-sizing: border-box;
+  min-width: 320px;
+  max-width: 320px;
+  width: 320px;
+}
+
+.shopping-basket-container .product-card img {
+  width: 2.5cm;
+  height: 2.5cm;
+  border-radius: 8px;
+  object-fit: cover;
+  margin: 0 10px; /* ריווח שווה מימין ומשמאל */
+  border: none;
+  background: #f7f7f7;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* ודא שגם התוכן לא יחרוג */
+.shopping-basket-container .product-card > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  margin: 0;         /* אפס מרווחים צדדיים */
+  padding: 0;        /* אפס ריווח פנימי */
+  justify-content: center;
+  height: 100%;
+}
+
+.shopping-basket-container .product-card p {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.4;
+  word-break: break-word;
+  text-align: center;      /* מרכז כל שורה */
+}
+
+/* ודא שגם התוכן לא יחרוג */
+.shopping-basket-container {
+  /* ...existing code... */
+  align-items: center; /* מרכז את כל המלבנים */
+}
+
 @media (max-width: 768px) {
   .main-container {
     flex-direction: column; /* Stack sections vertically on smaller screens */
@@ -226,5 +290,11 @@
   .shopping-basket-container,
   .payment-container {
     max-width: 100%; /* Full width for both sections */
+  }
+
+  .shopping-basket-container .product-card {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
   }
 }

@@ -3,16 +3,16 @@ import { useSelector } from "react-redux";
 import Product from "../Product";
 
 export default function BarDesigns({ searchTerm }) {
-    const productsState = useSelector(state => state.products);
+  const productsState = useSelector(state => state.products);
   const allProducts = productsState?.barDesigns || [];
 
   const filteredProducts = searchTerm
     ? allProducts.filter(product =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
-      )
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
     : allProducts;
-    return (
-<div className="gallery-container">
+  return (
+    <div className="gallery-container">
       {filteredProducts.map(product => (
         <Product
           key={product.id}
@@ -25,5 +25,5 @@ export default function BarDesigns({ searchTerm }) {
         />
       ))}
     </div>
-    );
+  );
 }

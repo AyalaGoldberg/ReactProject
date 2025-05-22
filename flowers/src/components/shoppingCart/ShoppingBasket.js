@@ -6,7 +6,6 @@ import ProductModal from '../ProductModal';
 import './ShoppingBasket.css';
 import { useCart } from './CartOntext';
 
-
 export default function ShoppingBasket() {
     const { productsForBuying, removeItem } = useCart();
 
@@ -16,7 +15,7 @@ export default function ShoppingBasket() {
     const openModal = (product) => {
         setSelectedProduct(product);
         setIsModalOpen(true);
-    }
+    };
 
     return (
         <>
@@ -34,12 +33,21 @@ export default function ShoppingBasket() {
                                 onClick={() => openModal(element)}
                                 style={{ cursor: "pointer" }}
                             >
-                                <button className="remove-button" onClick={() => removeItem(element.id)}>X</button>
+                                <button
+                                    className="remove-button"
+                                    onClick={e => {
+                                        e.stopPropagation();
+                                        removeItem(element.id);
+                                    }}
+                                >
+                                    X
+                                </button>
                                 <img src={element.productImage} alt={element.name} />
                                 <div>
                                     <p>{element.name}</p>
-                                    <p>{element.price} ₪</p>
+                                    <p>מחיר ליחידה: {element.price} ₪</p>
                                     <p>כמות: {element.amount}</p>
+                                    <p>סה"כ: {element.amount * element.price} ₪</p>
                                 </div>
                             </div>
                         ))

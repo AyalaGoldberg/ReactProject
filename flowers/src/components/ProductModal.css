@@ -1,0 +1,159 @@
+/* רקע חצי שקוף */
+.ReactModal__Overlay {
+  background: rgba(0, 0, 0, 0.5) !important;
+  z-index: 1000;
+}
+
+/* קונטיינר המודאל */
+.ReactModal__Content {
+  max-width: 600px;
+  margin: auto;
+  border-radius: 16px;
+  padding: 48px 32px 32px 32px;
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  position: relative;
+  direction: rtl;
+  font-family: inherit;
+  padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* כותרת במרכז */
+.modal-title-centered {
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-title-centered h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #222;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+/* כפתור סגירה בפינה הימנית העליונה, סולידי */
+.modal-close-x {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background: #f3f3f3;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.7rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  z-index: 3;
+  padding: 0;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-close-x:hover {
+  color: #555;
+  background: #e0e0e0;
+}
+
+/* פריסת תוכן אופקית סימטרית */
+.modal-content-flex-vertical {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-image-col-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  min-width: 120px;
+  height: 220px;
+}
+
+.modal-image-col-centered img {
+  max-width: 180px;
+  max-height: 220px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: #fafafa;
+  display: block;
+  margin: 0 auto;
+}
+
+.modal-info-col-centered {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  min-width: 180px;
+  max-width: 260px;
+  width: 100%;
+}
+
+.modal-desc {
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.modal-price {
+  color: #2e7d32;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.modal-qty {
+  color: #333;
+  font-size: 1.05rem;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .ReactModal__Content {
+    padding: 12px 4px 16px 4px;
+    max-width: 98vw;
+  }
+  .modal-title-centered {
+    margin-top: 4px;
+  }
+  .modal-content-flex-vertical {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+  }
+  .modal-image-col-centered,
+  .modal-info-col-centered {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .modal-image-col-centered img {
+    max-width: 90vw;
+    max-height: 180px;
+  }
+}
