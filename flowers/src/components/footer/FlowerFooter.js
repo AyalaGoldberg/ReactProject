@@ -7,7 +7,7 @@ import './FlowerFooter.css'; // ייבוא קובץ ה-CSS לעיצוב
 export default function FlowerFooter() {
     const categories = ['ראשי', 'אודות', 'לקוחות מספרים', 'צור קשר'];
     const galleries = ['ברים', 'מרכזי שולחן', 'עיצוב לכסא כלה', 'זרי פרחים לכלה', 'חופות'];
-    const connect = ['טלפון 0527546523', 'מייל flowers@gmail.com', 'כתובת רחוב הפרחים 5 מודיעין', 'שעות פתיחה 09:00-18:00'];
+    const connect = ['טלפון 0527546523', 'מייל cherryBlossom@gmail.com', 'כתובת רחוב הפרחים 5 מודיעין', 'שעות פתיחה 09:00-18:00'];
 
     return (
         <div className="footer">
