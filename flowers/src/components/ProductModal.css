@@ -132,6 +132,31 @@
   width: 100%;
 }
 
+/* כפתור הוסף לסל */
+.add-to-cart-btn {
+  background-color: #862e34;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(56, 142, 60, 0.08);
+  letter-spacing: 1px;
+  text-align: center;
+  display: block;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #dc8f94;
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
+}
+
 @media (max-width: 600px) {
   .ReactModal__Content {
     padding: 12px 4px 16px 4px;
