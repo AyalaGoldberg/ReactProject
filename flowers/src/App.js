@@ -11,6 +11,7 @@ import { CartProvider } from './components/shoppingCart/CartOntext';
 import Gallery from './components/Galerry';
 import ChooseProduct from './components/ChooseProduct';
 import Nav from './components/nav/Nav';
+import Contact from './components/contact/Contact';
 import { Route, Routes } from 'react-router-dom';
 import PaymentDetails from './components/shoppingCart/PaymentDetails';
 import img1 from './images/headerImg/800_63f267227c49c.png';
@@ -20,6 +21,7 @@ import BarDesigns from './components/shop/BarDesigns';
 import HupotDesigns from './components/shop/HupotDesigns';
 import CalasChairs from './components/shop/CalasChairs';
 import CalasBouquets from './components/shop/CalasBouquets';
+
 
 
 function App() {
@@ -72,6 +74,7 @@ function App() {
           setSearchTerm={setSearchTerm}
           showSearch={showSearch}
           productsToSearch={productsToSearch}
+
         />
         <Routes>
           <Route path='/' element={
@@ -81,6 +84,7 @@ function App() {
             </>
           } />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path='/chooseProduct' element={<ChooseProduct />} />
           <Route path='/shoppingBasket' element={<ShoppingBasket />} />
           <Route path='/paymentDetails' element={<PaymentDetails />} />

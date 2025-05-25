@@ -18,7 +18,13 @@ export default function ProductModal({
     }
 
     return (
-        <Modal isOpen={isOpen} onRequestClose={onRequestClose} contentLabel="Product Details">
+        <Modal
+            isOpen={isOpen}
+            onRequestClose={onRequestClose}
+            contentLabel="Product Details"
+            shouldCloseOnOverlayClick={true}
+            ariaHideApp={false} // הוסף שורה זו אם יש בעיות נגישות
+        >
             <button className="modal-close-x" onClick={closeModal} title="סגור">×</button>
             <div className="modal-title-centered">
                 <h2>{product.name}</h2>

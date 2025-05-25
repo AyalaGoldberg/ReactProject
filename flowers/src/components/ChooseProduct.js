@@ -10,6 +10,7 @@ export default function ChooseProduct({ product, onChoose }) {
     const [showBTN, setShowBTN] = useState(false);
     const navigate = useNavigate();
     const actionsRef = useRef(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         if (showBTN && actionsRef.current) {
@@ -41,6 +42,8 @@ export default function ChooseProduct({ product, onChoose }) {
                 <div className="modal-actions" ref={actionsRef}>
                     <button className="action-btn" onClick={() => {
                         if (onChoose) onChoose();
+                        
+                        setIsModalOpen(false);
                         setTimeout(() => navigate("/"), 100);
                     }}>להמשיך בקניות</button>
                     <button className="action-btn" onClick={() => {

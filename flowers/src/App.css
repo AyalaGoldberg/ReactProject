@@ -140,3 +140,22 @@ footer {
     transform: rotate(360deg);
   }
 }
+
+.cart-toast {
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: #862e34;
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    text-align: center;
+    min-width: 220px;
+    max-width: 90vw;
+    pointer-events: none;
+}
