@@ -3,7 +3,7 @@ import { useState } from 'react';
 import ChooseProduct from './ChooseProduct';
 import './ProductModal.css';
 
-export default function ProductModal({ 
+export default function ProductModal({
     isOpen,
     onRequestClose,
     product,
@@ -58,7 +58,7 @@ export default function ProductModal({
                     </div>
                 </div>
             </div>
-            {forBuying && (<ChooseProduct product={product}/>)}
+            {forBuying && (<ChooseProduct product={product} closeModal={closeModal}/>)}
         </Modal>
     );
 }

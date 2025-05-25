@@ -4,13 +4,13 @@ import './ChooseProduct.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
-export default function ChooseProduct({ product, onChoose }) {
+export default function ChooseProduct({ product, onChoose ,closeModal }) {
     const { addToCart } = useCart();
     const [showMsg, setShowMsg] = useState(false);
     const [showBTN, setShowBTN] = useState(false);
     const navigate = useNavigate();
     const actionsRef = useRef(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    // const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         if (showBTN && actionsRef.current) {
@@ -42,12 +42,17 @@ export default function ChooseProduct({ product, onChoose }) {
                 <div className="modal-actions" ref={actionsRef}>
                     <button className="action-btn" onClick={() => {
                         if (onChoose) onChoose();
-                        
-                        setIsModalOpen(false);
+                        if(window.location.pathname === "/") {
+                            closeModal();
+                        }
+                        // else
                         setTimeout(() => navigate("/"), 100);
                     }}>להמשיך בקניות</button>
                     <button className="action-btn" onClick={() => {
                         if (onChoose) onChoose();
+                        if(window.location.pathname === "/shoppingBasket") {
+                            closeModal();
+                        }
                         setTimeout(() => navigate("/shoppingBasket"), 100);
                     }}>מעבר לעגלה</button>
                 </div>

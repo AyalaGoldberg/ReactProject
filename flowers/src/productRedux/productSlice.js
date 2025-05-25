@@ -38,14 +38,14 @@ const productsSlice = createSlice({
   name: 'products',
   initialState: {
     products: [
-      { id: 1, description: "כסא בעיצוב מלכותי מרהיב, מושלם לאירועים חגיגיים ויוקרתיים. מעניק תחושת כבוד והדר.", productImage: img1, stock: 5, price: 20, name: "כסא כלה בעיצוב מלכותי" },
-      { id: 2, description: "עיצוב ייחודי ומהודר לחופה, המשלב יופי טבעי וקווים אלגנטיים, להשלמת האווירה המרגשת.", productImage: img2, stock: 5, price: 35, name: "עיצוב מרהיב לחופה" },
-      { id: 3, description: "זר לבן קלאסי ואלגנטי, מתאים לשימושים מגוונים באירועים ושמחות.", productImage: img3, stock: 5, price: 100, name: "זר לבן" },
-      { id: 4, description: "כיסא מהודר בעיצוב מלכותי, עשוי בקפידה ובגימור מוקפד, מתאים לאירועים יוקרתיים ולמעמדים של כבוד..", productImage: img4, stock: 2, price: 62, name: "כסא כלה מפואר" },
-      { id: 5, description: "זר עדין העשוי מפרחי כותנה, משרה אווירה טבעית, רגועה ומכובדת.", productImage: img5, stock: 33, price: 40, name: "זר כלה כותנה" },
-      { id: 6, description: "פרחים אדומים עזים, מעניקים נגיעה של צבע וחום לעיצוב האירוע.", productImage: img6, stock: 8, price: 32, name: "פרחים אדומים" },
-      { id: 7, description: "כסא בסגנון כפרי חמים, מתאים במיוחד לאירועים אינטימיים ואלגנטיים.", productImage: img7, stock: 10, price: 45, name: "כסא כלה בעיצוב כפרי" },
-      { id: 8, description: "עיצוב שולחן ייחודי, משלב אלמנטים טבעיים עם סידור מוקפד ומכובד.", productImage: img8, stock: 10, price: 45, name: "עיצוב מרהיב לשולחן" },
+      { id: 1, description: "כסא בעיצוב מלכותי מרהיב, מושלם לאירועים חגיגיים ויוקרתיים. מעניק תחושת כבוד והדר.", productImage: img1, stock: 5, price: 20, name: "כסא כלה בעיצוב מלכותי",amount: 1 },
+      { id: 2, description: "עיצוב ייחודי ומהודר לחופה, המשלב יופי טבעי וקווים אלגנטיים, להשלמת האווירה המרגשת.", productImage: img2, stock: 5, price: 35, name: "עיצוב מרהיב לחופה",amount: 1 },
+      { id: 3, description: "זר לבן קלאסי ואלגנטי, מתאים לשימושים מגוונים באירועים ושמחות.", productImage: img3, stock: 5, price: 100, name: "זר לבן" ,amount: 1},
+      { id: 4, description: "כיסא מהודר בעיצוב מלכותי, עשוי בקפידה ובגימור מוקפד, מתאים לאירועים יוקרתיים ולמעמדים של כבוד..", productImage: img4, stock: 2, price: 62, name: "כסא כלה מפואר" ,amount: 1},
+      { id: 5, description: "זר עדין העשוי מפרחי כותנה, משרה אווירה טבעית, רגועה ומכובדת.", productImage: img5, stock: 33, price: 40, name: "זר כלה כותנה" ,amount: 1},
+      { id: 6, description: "פרחים אדומים עזים, מעניקים נגיעה של צבע וחום לעיצוב האירוע.", productImage: img6, stock: 8, price: 32, name: "פרחים אדומים",amount: 1 },
+      { id: 7, description: "כסא בסגנון כפרי חמים, מתאים במיוחד לאירועים אינטימיים ואלגנטיים.", productImage: img7, stock: 10, price: 45, name: "כסא כלה בעיצוב כפרי",amount: 1 },
+      { id: 8, description: "עיצוב שולחן ייחודי, משלב אלמנטים טבעיים עם סידור מוקפד ומכובד.", productImage: img8, stock: 10, price: 45, name: "עיצוב מרהיב לשולחן",amount: 1 },
       // { id: 7, productImage: img9, stock: 10, price: 45, name: "פרח כתום" },
     ],
     barDesigns: [
@@ -90,6 +90,17 @@ const productsSlice = createSlice({
         }
       }
     },
+    setAmount(state, action,amount,id) {
+      // const { id, amount } = action.payload;
+      // עדכון בכל הקטגוריות
+      for (const key of Object.keys(state)) {
+        const product = state[key].find && state[key].find(product => product.id === id);
+        if (product) {
+          product.amount = amount;
+          break;
+        }
+      }
+    }
     // אפשר להוסיף reducers נוספים לפי הצורך
   },
 });

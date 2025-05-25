@@ -8,43 +8,37 @@ function Product({ image, description, price, code, type, product }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { addToCart } = useCart();
 
-  const openModal = () => {
-    setQuantity(1);
-    setIsModalOpen(true);
-  };
-  const closeModal = () => {
+  const openModal = () => setIsModalOpen(true);
+// כאן מאפסים את הכמות רק בסגירה!
+const closeModal = () => {
     setIsModalOpen(false);
     setQuantity(1);
-  };
+};
 
-  const handleAddToCart = () => {
+const handleAddToCart = () => {
     addToCart({ ...product, amount: quantity });
     setIsModalOpen(false);
-    setQuantity(1);
-  };
+    setQuantity(1); // אפשר גם כאן, אבל עדיף רק בסגירה
+};
 
   return (
-    <>
-      <div className="product-card" style={{ cursor: "pointer" }} onClick={openModal}>
-        <img src={image} alt={type} />
-        <h2>{type}</h2>
-        <p>{description}</p>
-        <p>מחיר: {price} ₪</p>
-      </div>
-      {isModalOpen && (
-        <ProductModal
-          isOpen={isModalOpen}
-          onRequestClose={closeModal}
-          product={product}
-          type={type}
-          image={image}
-          quantity={quantity}
-          setQuantity={setQuantity}
-          forBuying={true}
-          onAddToCart={handleAddToCart}
-        />
-      )}
-    </>
+    <div className="product-card" onClick={openModal} style={{ cursor: "pointer" }}>
+      <img src={image} alt={type} />
+      <h2>{type}</h2>
+      <p>{description}</p>
+      <p>מחיר: {price} ₪</p>
+      <ProductModal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        product={product}
+        type={type}
+        image={image}
+        quantity={quantity}
+        setQuantity={setQuantity}
+        forBuying={true}
+        onAddToCart={handleAddToCart}
+      />
+    </div>
   );
 }
 
